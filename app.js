@@ -5,7 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신순 라우터
+var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 재생한 순 라우터
 var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재생한 순 라우터
 var musicAlphabetRouter = require('./routes/getmusic_alphabet.js'); // 음악 가나다순 라우터
 
