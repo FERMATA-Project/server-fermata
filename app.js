@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/playlist/now', plNowRouter);
+app.use('/playlist', plNowRouter);
 app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
