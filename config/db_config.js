@@ -9,8 +9,7 @@ const db_info = {
 		host: 'localhost',
 		user: 'test',
 		password: process.env.DB_SECRET,
-		database: 'fermata',
-		port: 3000
+		database: 'fermata'
     },
     // 실제 운영 서버 환경
 	real: {
