@@ -7,7 +7,7 @@ var connection = config.init()
 connection.connect();
 
 
-router.post('/playlist/now', function (req, res) {
+router.post('/now', function (req, res) {
     var query = "SELECT * FROM playlist WHERE playlist_title = '현재'";
 
     connection.query(query, function (error, result) {
