@@ -5,10 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+<<<<<<< HEAD
+var playlistRouter = require('./routes/playlist');  //재생목록 라우터
+=======
 var plNowRouter = require('./routes/playlist_now.js'); //현재 재생목록
 var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 재생한 순 라우터
 var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재생한 순 라우터
 var musicAlphabetRouter = require('./routes/getmusic_alphabet.js'); // 음악 가나다순 라우터
+>>>>>>> f443f2d77690683e9c00b94dd08400062c8406d8
 
 var app = express();
 
@@ -23,10 +27,14 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+<<<<<<< HEAD
+app.use('/music', playlistRouter);
+=======
 app.use('/playlist/now', plNowRouter);
 app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
+>>>>>>> f443f2d77690683e9c00b94dd08400062c8406d8
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
