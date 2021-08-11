@@ -8,9 +8,11 @@ var indexRouter = require('./routes/index');
 var playlistLatelyRouter = require('./routes/playlist_lately');  //최근 재생목록 5개 라우터
 var playlistListRouter = require('./routes/playlist_list'); //재생목록 리스트 라우터
 var plNowRouter = require('./routes/playlist_now.js'); //현재 재생목록
+var deletePlaylist = require('./routes/delete_playlist.js'); // 플레이리스트 삭제
 var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 재생한 순 라우터
 var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재생한 순 라우터
-var musicAlphabetRouter = require('./routes/getmusic_alphabet.js'); // 음악 가나다순 라우터
+var musicAlphabetRouter = require('./routes/getmusic_alphabet'); // 음악 가나다순 라우터
+var searchRouter = require('./routes/search'); // 음악 검색 라우터
 
 var app = express();
 
@@ -28,9 +30,14 @@ app.use('/', indexRouter);
 app.use('/music', playlistLatelyRouter);
 app.use('/playlist', playlistListRouter);
 app.use('/playlist/now', plNowRouter);
+app.use('/playlist', plNowRouter); //http://localhost:3000/playlist/now
+app.use('/playlist', deletePlaylist); //http://localhost:3000/playlist/delete
+app.use('/playlist', plNowRouter);
+app.use('/music', playlistRouter);
 app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
+app.use('/music', searchRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

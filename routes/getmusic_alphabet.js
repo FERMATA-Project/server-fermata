@@ -1,4 +1,4 @@
-// 음악 가나다 순으로 가져오기
+// 음악 가나다 순 조회
 //Author : Soohyun, Last Modified : 2021.08.05
 
 var express = require('express');
