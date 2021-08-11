@@ -29,11 +29,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/music', playlistLatelyRouter);
 app.use('/playlist', playlistListRouter);
-app.use('/playlist/now', plNowRouter);
 app.use('/playlist', plNowRouter); //http://localhost:3000/playlist/now
 app.use('/playlist', deletePlaylist); //http://localhost:3000/playlist/delete
 app.use('/playlist', plNowRouter);
-app.use('/music', playlistRouter);
 app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
