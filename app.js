@@ -13,6 +13,7 @@ var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 �
 var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재생한 순 라우터
 var musicAlphabetRouter = require('./routes/getmusic_alphabet'); // 음악 가나다순 라우터
 var searchRouter = require('./routes/search'); // 음악 검색 라우터
+var addMusicRouter = require('./routes/add_music'); // 플레이리스트에 음악 추가 라우터
 
 var app = express();
 
@@ -36,6 +37,7 @@ app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
 app.use('/music', searchRouter);
+app.use('/music', addMusicRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
