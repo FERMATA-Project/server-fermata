@@ -14,6 +14,7 @@ var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재�
 var musicAlphabetRouter = require('./routes/getmusic_alphabet'); // 음악 가나다순 라우터
 var searchRouter = require('./routes/search'); // 음악 검색 라우터
 var addMusicRouter = require('./routes/add_music'); // 플레이리스트에 음악 추가 라우터
+var playMusicRouter = require('./routes/play_music'); // 음악 재생 라우터
 
 var app = express();
 
@@ -38,6 +39,7 @@ app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
 app.use('/music', searchRouter);
 app.use('/music', addMusicRouter);
+app.use('/music', playMusicRouter); //http://localhost:3000/music/play?music_id=1
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
