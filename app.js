@@ -7,6 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var playlistLatelyRouter = require('./routes/playlist_lately');  //최근 재생목록 5개 라우터
 var playlistListRouter = require('./routes/playlist_list'); //재생목록 리스트 라우터
+var playlistlikesRouter = require('./routes/playlist_likes');  //좋아요 리스트 라우터
+var playlistAddRouter = require('./routes/playlist_add');  //리스트 저장 라우터
 var plNowRouter = require('./routes/playlist_now.js'); //현재 재생목록
 var deletePlaylist = require('./routes/delete_playlist.js'); // 플레이리스트 삭제
 var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 재생한 순 라우터
@@ -28,7 +30,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/music', playlistLatelyRouter);
+app.use('/music', playlistlikesRouter);
 app.use('/playlist', playlistListRouter);
+app.use('/playlist', playlistAddRouter);
 app.use('/playlist', plNowRouter); //http://localhost:3000/playlist/now
 app.use('/playlist', deletePlaylist); //http://localhost:3000/playlist/delete
 app.use('/playlist', plNowRouter);
