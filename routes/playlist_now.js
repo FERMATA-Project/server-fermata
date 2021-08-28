@@ -8,7 +8,6 @@ connection.connect();
 
 
 router.post('/now', function (req, res) {
-    //var query = "SELECT m.music_id, m.music_title, m.singer, m.count, m.play_date, m.likes FROM music m JOIN playlist p on m.music_id = p.music_id and p.playlist_title = '현재'";
     var query = "SELECT * FROM music WHERE music_id IN (SELECT music_id FROM playlist WHERE playlist_title = '현재')";
 
     connection.query(query, function (error, result) {
@@ -19,7 +18,6 @@ router.post('/now', function (req, res) {
         else {
             console.log("success: ", result);
             res.json({ "code": 200, "music": result });
-            //console.log(result);
         }
     });
     
