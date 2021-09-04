@@ -11,7 +11,7 @@ var playlistlikesRouter = require('./routes/playlist_likes');  //좋아요 리�
 var playlistAddRouter = require('./routes/playlist_add');  //리스트에 음악 저장 라우터
 var playlistDelRouter = require('./routes/playlist_del');  //리스트에 음악 저장취소 라우터
 var playlistGetmusicRouter = require('./routes/playlist_getmusic');  //재생목록 음악 가져오기 라우터
-var plNowRouter = require('./routes/playlist_now.js'); //현재 재생목록
+var getPlayListRouter = require('./routes/get_playlist.js'); // 선택된 재생목록의 음악 리스트 가져오기
 var deletePlaylist = require('./routes/delete_playlist.js'); // 플레이리스트 삭제
 var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 재생한 순 라우터
 var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재생한 순 라우터
@@ -41,9 +41,9 @@ app.use('/music', playlistlikesRouter);
 app.use('/playlist', playlistListRouter);
 app.use('/playlist', playlistAddRouter);
 app.use('/playlist', playlistDelRouter);
-app.use('/playlist', plNowRouter); //http://localhost:3000/playlist/now
+app.use('/playlist', getPlayListRouter); 
 app.use('/playlist', deletePlaylist); //http://localhost:3000/playlist/delete
-app.use('/playlist', plNowRouter);
+app.use('/playlist', getPlayListRouter);
 app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
