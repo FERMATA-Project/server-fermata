@@ -17,7 +17,8 @@ var musicRecentRouter = require('./routes/getmusic_recent'); // 음악 최신 �
 var musicTimesRouter = require('./routes/getmusic_times'); // 음악 많이 재생한 순 라우터
 var musicAlphabetRouter = require('./routes/getmusic_alphabet'); // 음악 가나다순 라우터
 var searchRouter = require('./routes/search'); // 음악 검색 라우터
-var addMusicRouter = require('./routes/add_music'); // 플레이리스트에 음악 추가 라우터
+var addMusicRouter = require('./routes/playlist_add_music'); // 플레이리스트에 음악 추가 라우터
+var deleteMusicRouter = require('./routes/playlist_delete_music'); // 플레이리스트에 음악 삭제 라우터
 var playMusicRouter = require('./routes/play_music'); // 음악 재생 라우터
 var updateLikeRouter = require('./routes/update_like'); // 좋아요 상태 변경 라우터
 var updatePlayDateRouter = require('./routes/update_playdate'); // 재생 날짜 변경 라우터
@@ -44,11 +45,12 @@ app.use('/playlist', playlistDelRouter);
 app.use('/playlist', getPlayListRouter); 
 app.use('/playlist', deletePlaylist); //http://localhost:3000/playlist/delete
 app.use('/playlist', getPlayListRouter);
+app.use('/playlist', addMusicRouter);
+app.use('/playlist', deleteMusicRouter);
 app.use('/music', musicRecentRouter);
 app.use('/music', musicTimesRouter);
 app.use('/music', musicAlphabetRouter);
 app.use('/music', searchRouter);
-app.use('/music', addMusicRouter);
 app.use('/music', playMusicRouter); //http://localhost:3000/music/play?music_id=?
 app.use('/music', updateLikeRouter);
 app.use('/music', updatePlayDateRouter); 
