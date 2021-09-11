@@ -1,5 +1,6 @@
 //재생목록 리스트 가져오기
 // Author : seungyeon, Last Modified : 2020.08.10
+// Author : soohyun, Last Modified : 2020.09.10
 
 var express = require("express");
 var router = express.Router();
@@ -8,7 +9,7 @@ var connection = config.init();
 connection.connect();
 
 router.post('/playlist_list', function(req, res) {
-    var query = 'SELECT count(music_id), playlist_title FROM playlist where playlist_title NOT IN("현재") group by playlist_title'
+    var query = 'SELECT count(music_id), playlist_title FROM playlist group by playlist_title'
 
     connection.query(query, function (error, result) {
         if(error) { // 에러 발생시

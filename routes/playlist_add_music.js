@@ -1,4 +1,4 @@
-// 플레이리스트 음악 추가
+// 플레이리스트에 음악 추가
 //Author : Soohyun, Last Modified : 2021.08.12
 
 var express = require('express');
@@ -7,7 +7,7 @@ var config = require('../config/db_config');
 var connection = config.init()
 connection.connect();
 
-router.post('/add', function (req, res) {
+router.post('/addMusic', function (req, res) {
     var playlist_title = req.body.playlist_title; // 재생목록 이름
     var music_id = req.body.music_id; // 음악 아이디
     var query1 = 'SELECT * FROM playlist WHERE playlist_title = ? AND music_id = ?' // 해당 재생목록의 음악 중복 체크 쿼리문
