@@ -8,8 +8,8 @@ var connection = config.init()
 connection.connect();
 
 router.post('/search', function (req, res) {
-    var search_word = req.body.search_word;
-    var query = 'SELECT * FROM music WHERE music_title = ? OR singer = ?'; // 음악 검색 쿼리문
+    var search_word = '%' + req.body.search_word + '%';
+    var query = 'SELECT * FROM music WHERE music_title LIKE ? OR singer LIKE ?'; // 음악 검색 쿼리문
 
     connection.query(query, [search_word, search_word], function (error, result) {
         if(error) { // 에러 발생시
