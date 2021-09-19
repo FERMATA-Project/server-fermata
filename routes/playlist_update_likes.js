@@ -11,8 +11,12 @@ router.post('/updateLikes', function (req, res) {
     var music_id = req.body.music_id; // 음악 아이디
     var query = 'UPDATE music SET likes = 0 WHERE music_id = ?'; // 좋아요 상태 변경 쿼리문
 
+    // music_id 가  문자열로 들어온 경우
+    if(typeof music_id == 'string') {
+        music_id = [music_id];
+    }
+
     for(var i=0; i<music_id.length; i++) {
-        console.log(i);
         connection.query(query, music_id[i], function (error, result) {
             if(error) { // 에러 발생시
                 console.log("error ocurred: ", error);
